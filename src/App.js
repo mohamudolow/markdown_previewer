@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Form, FormGroup, FormControl, FormLabel} from 'react-bootstrap';
 
-function App() {
+const marked = require('marked');
+
+class App extends React.Component {
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+    <div>
+    <Form>
+      <FormGroup controlId="formControlsTextarea">
+    <FormLabel>Markdown Input</FormLabel>
+    <FormControl as="textarea" rows="5" placeholder="Enter Markdown"/>
+    </FormGroup>
+    </Form>
+    </div>
     </div>
   );
+}
 }
 
 export default App;
