@@ -33,3 +33,25 @@
   height: 450px;
   overflow: scroll;
 }
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #1b1918;
+  color: #a8a19f;
+  padding: 0.5em;
+}
+.hljs-function .hljs-params {
+  color: rgba(46, 94, 226, 0.61);
+}
+.hljs-keyword, .hljs-operator {
+  color: #e32bdc;
+}
+.hljs-title, .hljs-number {
+  color: #2db27f;
+}
+.hljs-comment, .hljs-quote {
+  color: #b18eb1;
+  font-style: italic;
+}
+

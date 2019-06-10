@@ -4,9 +4,20 @@ import './App.css';
 import {Form, FormGroup, FormControl, FormLabel} from 'react-bootstrap';
 
 const marked = require('marked');
+const highlightJs = require('highlight.js');
+
+const renderer = new marked.Renderer();
+renderer.link = function(href, title, text) {
+  return `<a href=${href} target="_blank">${text}</a>`;
+}
 marked.setOptions({
+  renderer,
+  highlight: function(code) {
+    return highlightJs.highlightAuto(code).value;
+  },
   breaks: true
-})
+});
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -56,10 +67,13 @@ render() {
 
 const placeholder = 
       `### Headers
+
 # Header 1
 ## Header 2 
 
+
 ### Text Decorations
+
 *Italic*
 **Bold**
 ***Bold & Italic***
@@ -82,12 +96,17 @@ const placeholder =
 
 ### Code
 \`npm install create-react-app\`
-
-### Code Block
 \`\`\`
-function multiplyNumbers(a, b){
-return a * b;
+
+function squareNumber(a) {
+  return a * a;
 }
+
+const j = 4;
+squareNumber(j)
+/*const k = 19;*/
+
+
 \`\`\`
 `;
 
