@@ -21,28 +21,45 @@ class App extends React.Component {
 render() {
   return (
     <div className="App container">
-    <div>
+    <div className="header row">
+    <div className="col-sm-12"> 
+    <h1 className="h1">Markdown Previewer</h1>
+    </div>
+    </div>
+    
+    <div className="main row">
+    <div id="input" className="col-sm-5">
+    <div id="editor">
     <Form>
       <FormGroup controlId="formControlsTextarea">
-    <FormLabel>Markdown Input</FormLabel><br />
-    <FormControl as="textarea" rows="10" placeholder="Enter Markdown" value={this.state.markdown} onChange={this.updateMarkdown}/>
+    <FormLabel className="h2">Markdown Input:</FormLabel>
+    <FormControl id="textarea" as="textarea" rows="18" placeholder="Enter Markdown" value={this.state.markdown} onChange={this.updateMarkdown}/>
     </FormGroup>
     </Form>
     </div>
-    
-    <div>
-    <h2>Markdown Output</h2>
-    <div dangerouslySetInnerHTML = {{__html: marked(this.state.markdown)}}>
-        </div>
     </div>
+    
+    <div className="col-sm-2"></div>
+    
+    <div id="output" className="col-sm-5">
+    <h2 className="h2">Markdown Output:</h2>
+    <div id="preview">
+    <div dangerouslySetInnerHTML = {{__html: marked(this.state.markdown)}}>
+    </div>
+    </div>
+    </div>
+</div>
     </div>
   );
 }
 }
 
-const placeholder = `# This is a Markdown Previewer
+const placeholder = 
+      `# This is a Markdown Previewer
 ## Sub-heading can go here 
-Here is where to include some more cool stuff`;
+
+Here is where to include some more cool stuff
+`;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
