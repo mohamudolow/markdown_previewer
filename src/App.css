@@ -1,6 +1,6 @@
 .container {
   /*width: 80vw;*/
-  margin: 5% auto;
+  margin: 1% auto;
   background-color: rgba(128, 128, 128, 0.03);
   height: auto;
   padding-bottom: 3%;
@@ -21,6 +21,9 @@
 #input {
   margin: 0 auto;
 }
+#textarea {
+  outline: none;
+}
 #preview {
   margin: 0 auto;
   padding-left: 3%;
@@ -28,4 +31,5 @@
   border: 1px solid rgba(178, 168, 168, 0.32);
   border-radius: 5px;
   height: 450px;
+  overflow: scroll;
 }

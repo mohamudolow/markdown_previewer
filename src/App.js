@@ -4,7 +4,9 @@ import './App.css';
 import {Form, FormGroup, FormControl, FormLabel} from 'react-bootstrap';
 
 const marked = require('marked');
-
+marked.setOptions({
+  breaks: true
+})
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ render() {
     </div>
     
     <div className="main row">
-    <div id="input" className="col-sm-5">
+    <div id="input" className="col-sm-6">
     <div id="editor">
     <Form>
       <FormGroup controlId="formControlsTextarea">
@@ -39,9 +41,7 @@ render() {
     </div>
     </div>
     
-    <div className="col-sm-2"></div>
-    
-    <div id="output" className="col-sm-5">
+    <div id="output" className="col-sm-6">
     <h2 className="h2">Markdown Output:</h2>
     <div id="preview">
     <div dangerouslySetInnerHTML = {{__html: marked(this.state.markdown)}}>
@@ -55,10 +55,40 @@ render() {
 }
 
 const placeholder = 
-      `# This is a Markdown Previewer
-## Sub-heading can go here 
+      `### Headers
+# Header 1
+## Header 2 
 
-Here is where to include some more cool stuff
+### Text Decorations
+*Italic*
+**Bold**
+***Bold & Italic***
+
+### List
+- List one
+- List two
+- List three
+
+### Links
+[FreeCodeCamp] (http://www.freecodecamp.org "The most popular free programming resource for beginner developers who are learning to code")
+[Facebook] (http:www.facebook.com "The most popular social media site")
+[JavaScript] (https://developer.mozilla.org/en-US/docs/Web/JavaScript "A programming language for the web")
+
+### Image
+![Alt text](https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=366&q=80 'some code')
+
+### Blockquote
+> “There are two motives for reading a book; one, that you enjoy it; the other, that you can boast about it [on Goodreads].” - Bertrand Russell
+
+### Code
+\`npm install create-react-app\`
+
+### Code Block
+\`\`\`
+function multiplyNumbers(a, b){
+return a * b;
+}
+\`\`\`
 `;
 
 ReactDOM.render(<App />, document.getElementById('root'));
